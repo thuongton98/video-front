@@ -6,7 +6,7 @@ import{FETCH_VIDEO,NEW_VIDEO,FETCH_USER,NEW_USER,FETCH_CHANNEL,NEW_CHANNEL} from
 //user
 export const fetchUser = ()=>dispatch=>{
     
-        fetch('http://localhost:5000/user')
+        fetch('https://thuongtube.tk/api/video/user')
       .then(res => res.json())
       .then(users => dispatch({
           type:FETCH_USER,
@@ -17,7 +17,7 @@ export const fetchUser = ()=>dispatch=>{
     }
 export const newUser = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/add',{
+        fetch('https://thuongtube.tk/api/video/user/add',{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -32,7 +32,7 @@ export const newUser = user=>dispatch=>{
      
     }
 export const deleteuser=id=>dispatch=>{
-    fetch('http://localhost:5000/user/' + id, {
+    fetch('https://thuongtube.tk/api/video/user/' + id, {
         method: 'DELETE',
       })
       .then(res => res.json()) 
@@ -40,7 +40,7 @@ export const deleteuser=id=>dispatch=>{
 
 export const updateuseradmin = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/updateuser/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/updateuser/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -55,7 +55,7 @@ export const updateuseradmin = user=>dispatch=>{
 
 export const active = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/active/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/active/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -70,7 +70,7 @@ export const active = user=>dispatch=>{
 
     export const forget = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/forget/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/forget/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -84,7 +84,7 @@ export const active = user=>dispatch=>{
 
         export const change = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/change/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/change/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -98,7 +98,7 @@ export const active = user=>dispatch=>{
 
          export const sendactive = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/sendactive/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/sendactive/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -112,7 +112,7 @@ export const active = user=>dispatch=>{
 
            export const updateuser = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/update/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/update/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -127,7 +127,7 @@ export const active = user=>dispatch=>{
 
            export const updateemailsend = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/updateemail/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/updateemail/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -141,7 +141,7 @@ export const active = user=>dispatch=>{
 
            export const confirmemail = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/confirmemail/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/confirmemail/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -155,7 +155,7 @@ export const active = user=>dispatch=>{
 
       export const checkupdatepass = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/checkupdatepass/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/checkupdatepass/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -169,7 +169,7 @@ export const active = user=>dispatch=>{
 
     export const confirmpass = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/confirmpass/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/confirmpass/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -184,7 +184,7 @@ export const active = user=>dispatch=>{
 
     export const updateavatar = user=>dispatch=>{
     
-        fetch('http://localhost:5000/user/avatar/'+user.id,{
+        fetch('https://thuongtube.tk/api/video/user/avatar/'+user.id,{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -201,7 +201,7 @@ export const active = user=>dispatch=>{
 
     export const fetchChannel = ()=>dispatch=>{
     
-        fetch('http://localhost:5000/channel')
+        fetch('https://thuongtube.tk/api/video/channel')
       .then(res => res.json())
       .then(channels => dispatch({
           type:FETCH_CHANNEL,
@@ -213,7 +213,7 @@ export const active = user=>dispatch=>{
 
     export const newChannel = channel=>dispatch=>{
     
-        fetch('http://localhost:5000/channel/add',{
+        fetch('https://thuongtube.tk/api/video/channel/add',{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -228,7 +228,7 @@ export const active = user=>dispatch=>{
      
     }
 export const deletechannel=id=>dispatch=>{
-    fetch('http://localhost:5000/channel/' + id, {
+    fetch('https://thuongtube.tk/api/video/channel/' + id, {
         method: 'DELETE',
       })
       .then(res => res.json()) 
@@ -238,7 +238,7 @@ export const deletechannel=id=>dispatch=>{
 
     export const fetchVideo = ()=>dispatch=>{
     
-        fetch('http://localhost:5000/uploadall')
+        fetch('https://thuongtube.tk/api/video/uploadall')
       .then(res => res.json())
       .then(videos => dispatch({
           type:FETCH_VIDEO,
@@ -250,7 +250,7 @@ export const deletechannel=id=>dispatch=>{
 
        export const newVideo = video=>dispatch=>{
     
-        fetch('http://localhost:5000/uploadall/add',{
+        fetch('https://thuongtube.tk/api/video/uploadall/add',{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -266,7 +266,7 @@ export const deletechannel=id=>dispatch=>{
     }
 
 export const deletevideo=id=>dispatch=>{
-    fetch('http://localhost:5000/uploadall/' + id, {
+    fetch('https://thuongtube.tk/api/video/uploadall/' + id, {
         method: 'DELETE',
       })
       .then(res => res.json()) 
