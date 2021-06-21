@@ -71,7 +71,7 @@ if(redirectvideo!==''){
                 'content-type': 'multipart/form-data'
                }
                }
-                axios.post('http://localhost:5000/uploadvideo/add', formData, config).then(res => {
+                axios.post('https://thuongtube.tk/api/video/uploadvideo/add', formData, config).then(res => {
                  var z;
                 let filePath = res.data.fileNameInServer
                for(var i=0;i<filePath.length;i++)
@@ -84,7 +84,7 @@ if(redirectvideo!==''){
            //tren linux xoa /
            z=filePath.split('/')[1]
          }
-              }  const filevideo='http://localhost:5000/uploadvideo/'+z
+              }  const filevideo='https://thuongtube.tk/api/video/uploadvideo/'+z
                 setvideo(filevideo)
             
                
@@ -114,7 +114,7 @@ function uploadposter(e) {
                 'content-type': 'multipart/form-data'
                }
                }
-                axios.post('http://localhost:5000/uploadimg/add', formData, config).then(res => {
+                axios.post('https://thuongtube.tk/api/video/uploadimg/add', formData, config).then(res => {
                  var z;
                 let filePath = res.data.fileNameInServer
                for(var i=0;i<filePath.length;i++)
@@ -127,7 +127,7 @@ function uploadposter(e) {
            //tren linux xoa /
            z=filePath.split('/')[1]
          }
-              }  const file='http://localhost:5000/uploadimg/'+z
+              }  const file='https://thuongtube.tk/api/video/uploadimg/'+z
                 setposter(file)
             
                
