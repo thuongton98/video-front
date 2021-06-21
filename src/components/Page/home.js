@@ -11,6 +11,7 @@ function Home(){
 	const [videohover,setvideohover] = useState('')
 	const [check,setcheck] = useState('')
 	const [ok,setok] = useState('')
+	const [redirect,setredirect] = useState('')
 useEffect(()=>{
   dispatch(fetchChannel())
   dispatch(fetchVideo())
@@ -125,6 +126,11 @@ function hovervideo(e){
 		videohover.load();
 	}
 }
+if(redirect !==''){
+	return(
+		<Redirect to={'/video/'+redirect}/>
+	)
+}
 function showallvideo(e){
 	
 if(e.length>0){
@@ -134,7 +140,7 @@ if(e.length>0){
         <div className="allvideo-i">
          {e.map((value,index)=>{
          		return(
-         			  <div key={index}>
+         			  <div onClick={(e)=>setredirect(value._id)} key={index}>
             <video onMouseOver={(e)=>hovervideo(e.target)} className="video" poster={value.poster} src={value.video} muted/>
             <h4>{value.title}</h4>
           </div>
