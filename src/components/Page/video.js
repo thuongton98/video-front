@@ -142,13 +142,15 @@ function fullScreenButton(){
     videoref.webkitRequestFullscreen(); // Chrome and Safari
   }
 }
+
+
 function seekBar(e){
 	 // Calculate the new time
   var time = videoref.duration * (e.target.value / 100);
 
   // Update the video time
   videoref.currentTime = time;
-
+ 
 
 
 }
@@ -158,6 +160,9 @@ function updatetime(e){
 
   // Update the slider value
   seekBarref.value = value;
+  if(videoref.currentTime===videoref.duration){
+	  setpause('Again')
+  }
 }
 function changevolume(e){
 	// Update the video volume
@@ -174,40 +179,42 @@ if(videos.length>0){
 		const findchannel = channels.filter(function(value){
 		return value.idchannel === findvideo[0].idchannel
 	})
-		return(
+		if(findchannel.length>0){
+			return(
+				<div>
+				{showlogout(check)}
+					<section className="video-item">
+		   <div className="showvideo">
+			 <Link to='/soon' className="dangky">Dang ky</Link>
 			 <div>
-			 {showlogout(check)}
-			 	<section className="video-item">
-        <div className="showvideo">
-          <Link to='/soon' className="dangky">Dang ky</Link>
-          <div>
-            <video onTimeUpdate={(e)=>updatetime(e)} ref={ref=>videoref=ref} src={findvideo[0].video} className="video" autoPlay muted/>
-            {/* Video Controls */}
-            <div id="video-controls">
-              <button onClick={(e)=>playButton(e)} type="button" id="play-pause">{pause}</button>
-              <input ref={ref=>seekBarref=ref} onChange={(e)=>seekBar(e)}  type="range" id="seek-bar" defaultValue={0} />
-              <button onClick={(e)=>muteButton(e)} type="button" id="mute">{mute}</button>
-              <input ref={ref=>volumeref=ref} onChange={(e)=>changevolume(e.target.value)} type="range" id="volume-bar" min={0} max={1} step="0.1" defaultValue={0} />
-              <button onClick={(e)=>fullScreenButton(e)} type="button" id="full-screen">Full-Screen</button>
-            </div>
-          </div>
-          <div>
-            <h4>{findchannel[0].name}</h4>
-            <p>{findvideo[0].title}</p>
-          </div>
-        </div>
-        
-          {shownextvideo(videos,findvideo[0])}
-        
-      </section>
-       <div>
-			<footer className="footer">
-        <b>©</b>
-        <a href="/">Thuong</a>
-      </footer>
-		</div>
+			   <video onTimeUpdate={(e)=>updatetime(e)} ref={ref=>videoref=ref} src={findvideo[0].video} className="video" autoPlay muted/>
+			   {/* Video Controls */}
+			   <div id="video-controls">
+				 <button onClick={(e)=>playButton(e)} type="button" id="play-pause">{pause}</button>
+				 <input ref={ref=>seekBarref=ref} onChange={(e)=>seekBar(e)}  type="range" id="seek-bar" defaultValue={0} />
+				 <button onClick={(e)=>muteButton(e)} type="button" id="mute">{mute}</button>
+				 <input ref={ref=>volumeref=ref} onChange={(e)=>changevolume(e.target.value)} type="range" id="volume-bar" min={0} max={1} step="0.1" defaultValue={0} />
+				 <button onClick={(e)=>fullScreenButton(e)} type="button" id="full-screen">Full-Screen</button>
+			   </div>
 			 </div>
-			)
+			 <div>
+			   <h4>{findchannel[0].name}</h4>
+			   <p>{findvideo[0].title}</p>
+			 </div>
+		   </div>
+		   
+			 {shownextvideo(videos,findvideo[0])}
+		   
+		 </section>
+		  <div>
+			   <footer className="footer">
+		   <b>©</b>
+		   <a href="/">Thuong</a>
+		 </footer>
+		   </div>
+				</div>
+			   )
+		}
 	}else{
 		return(
 			<Redirect to='/p404'/>
