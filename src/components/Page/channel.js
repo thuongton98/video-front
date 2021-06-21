@@ -54,14 +54,14 @@ if(redirectvideo!==''){
 	function uploadz(e) {
            
              if(e==''){
-               alert('chua chon file!!!')
+               alert('chua chon file, file < 100M !!!')
              }
              else{
 
              	const z = e.type.split('/')
              	
               	if(z[0]!=='video'){
-              		alert('vui long chon video !!!')
+              		alert('vui long chon video, file < 100M !!!')
               		setvideo('')
               	}else{
               		const formData = new FormData();
@@ -97,14 +97,14 @@ if(redirectvideo!==''){
 function uploadposter(e) {
           
              if(e==''){
-               alert('chua chon file!!!')
+               alert('chua chon file, file < 100M !!!')
              }
              else{
 
              	const z = e.type.split('/')
              
               	if(z[0]!=='image'){
-              		alert('vui long chon hinh anh !!!')
+              		alert('vui long chon hinh anh, file< 100M !!!')
               		setposter('')
               	}else{
               		const formData = new FormData();
@@ -174,10 +174,10 @@ if(n===findvideo.length){
 function uploadall(e){
 	e.preventDefault();
 	if(video===''){
-		alert('vui long upload video')
+		alert('vui long upload video, file < 100M')
 	}
 	if(poster===''){
-		alert('vui long upload poster')
+		alert('vui long upload poster, file <100M')
 	}
 	if(title===''){
 		alert('vui long nhap title')
