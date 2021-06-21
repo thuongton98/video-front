@@ -15,9 +15,11 @@ useEffect(()=>{
   dispatch(fetchChannel())
   dispatch(fetchVideo())
   if(localStorage.token!==undefined){
+	  
 	setcheck('ok')
 }else{
 	setcheck('')
+	
 }
     
 },[dispatch])
@@ -34,8 +36,10 @@ localStorage.removeItem('user')
 
 
 function showlogout(e){
+	
 	if(e==='')
 	{
+		
 		return(
 		<nav className="Nav">
 		<div className="Nav-nho">
@@ -186,17 +190,7 @@ if(e.length>0){
 	}
 	return(
 			<div>
-			<nav className="Nav">
-		<div className="Nav-nho">
-			<div>Home</div>
-		<ul>
-			
-			<li onClick={(e)=>out()}>Logout</li>
-			
-		</ul>
-		</div>
-		
-	</nav>
+		{showlogout(check)}
 		<div className='waiting'>
     <h1>Wait <span></span></h1> 
     <div className="wait">
